@@ -76,8 +76,7 @@ class ValueIterationAgent(ValueEstimationAgent):
         """
         "*** YOUR CODE HERE ***"
         return max(self.mdp.getPossibleActions(state), default=None,
-                   key=lambda action: sum([prob * (self.mdp.getReward(state, action, s) +
-                                                   self.discount * (self.values[s]))
+                   key=lambda action: sum([prob * (self.values[s])
                                            for s, prob in self.mdp.getTransitionStatesAndProbs(state, action)]))
 
     def getAction(self, state):
